@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adhikesh M - Futurist Portfolio</title>
+    <title>Adhikesh M</title>
     <style>
-        /* --- GLOBAL STYLES --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        /* --- APPLE-STYLE MINIMALISM --- */
+        :root {
+            --bg-color: #fbfbfd;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent-blue: #0066cc;
+            --accent-hover: #0077ed;
+            --card-bg: #ffffff;
+            --border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            background-color: #0a0f1e;
-            color: #e0e7ff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(56, 189, 248, .05) 25%, rgba(56, 189, 248, .05) 26%, transparent 27%, transparent 74%, rgba(56, 189, 248, .05) 75%, rgba(56, 189, 248, .05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(56, 189, 248, .05) 25%, rgba(56, 189, 248, .05) 26%, transparent 27%, transparent 74%, rgba(56, 189, 248, .05) 75%, rgba(56, 189, 248, .05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- NAVIGATION --- */
         nav {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(15px);
-            padding: 20px 50px;
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,195 +41,201 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+            border-bottom: 1px solid var(--border-color);
         }
-        .logo { font-weight: 800; font-size: 22px; color: #38bdf8; text-decoration: none; letter-spacing: 1px; }
+        
+        .logo { 
+            font-weight: 600; 
+            font-size: 20px; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links { display: flex; gap: 30px; }
+        
         .nav-links a {
-            color: #a5b4fc;
+            color: var(--text-main);
             text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
         }
-        .nav-links a:hover { color: #38bdf8; }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #38bdf8;
-            transition: width 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
+        
+        .nav-links a:hover { opacity: 1; }
 
-        /* --- MAIN CONTENT CONTAINER --- */
+        /* --- MAIN LAYOUT --- */
         main {
-            margin-top: 120px;
-            padding: 0 50px 50px 50px;
+            margin-top: 80px;
+            padding: 60px 40px;
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* --- HOME PAGE LAYOUT --- */
+        /* --- HERO SECTION --- */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            margin-bottom: 100px;
-            animation: fadeInScale 1s ease-out;
+            margin-bottom: 120px;
+            gap: 60px;
+            animation: fadeUp 1s ease-out;
         }
-        .hero-text { flex: 1; padding-right: 50px; }
-        .hero-text h1 {
-            font-size: 60px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #ffffff, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-text p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; max-width: 500px; line-height: 1.6; }
         
-        .hero-visual { flex: 1; display: flex; justify-content: center; position: relative; }
-        .visual-orb {
-            position: absolute;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(15, 23, 42, 0) 70%);
-            border-radius: 50%;
-            filter: blur(40px);
-            z-index: -1;
+        .hero-text { flex: 1.2; }
+        
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 24px;
         }
+        
+        .hero-text p { 
+            font-size: 21px; 
+            color: var(--text-muted); 
+            margin-bottom: 36px; 
+            line-height: 1.5; 
+            font-weight: 400;
+        }
+        
+        .hero-visual { flex: 1; display: flex; justify-content: center; }
+        
         .profile-img-container {
-            width: 340px; height: 340px;
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            transition: transform 0.3s, border-color 0.3s;
+            width: 320px; 
+            height: 320px;
+            border-radius: 32px;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background: var(--card-bg);
         }
-        .profile-img-container:hover {
-            transform: translateY(-10px);
-            border-color: rgba(56, 189, 248, 0.8);
-        }
+        
         .profile-img-container img {
             width: 100%; height: 100%; object-fit: cover;
         }
 
         /* --- BUTTONS --- */
-        .btn-group { display: flex; gap: 20px; }
+        .btn-group { display: flex; gap: 16px; }
+        
         .btn {
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 980px;
+            font-size: 17px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
             cursor: pointer;
             border: none;
         }
+        
         .btn-primary {
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            background-color: var(--accent-blue);
+            color: #ffffff;
         }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #7dd3fc, #38bdf8);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-        }
+        
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        
         .btn-secondary {
-            background: transparent;
-            border: 1px solid #4f46e5;
-            color: #a5b4fc;
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--text-main);
         }
-        .btn-secondary:hover {
-            background: rgba(79, 70, 229, 0.1);
-            color: #c7d2fe;
-            border-color: #818cf8;
-        }
+        
+        .btn-secondary:hover { background-color: rgba(0, 0, 0, 0.1); }
 
-        /* --- SECTIONS --- */
+        /* --- SKILLS SECTION --- */
         .section-title {
-            font-size: 42px;
-            font-weight: 800;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -1px;
             margin-bottom: 60px;
             text-align: center;
             width: 100%;
         }
 
-        /* --- SKILLS GRID --- */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
             width: 100%;
             margin-bottom: 100px;
         }
+        
         .skill-card {
-            background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 16px;
-            transition: all 0.4s;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
+        
         .skill-card.appear {
             opacity: 1;
             transform: translateY(0);
         }
+        
         .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.4);
-            background: rgba(30, 41, 59, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-        .skill-icon { font-size: 40px; margin-bottom: 20px; color: #38bdf8; }
-        .skill-card h3 { font-size: 22px; margin-bottom: 10px; color: #e0e7ff; }
-        .skill-card p { font-size: 15px; color: #94a3b8; line-height: 1.6; }
+        
+        .skill-icon { 
+            font-size: 48px; 
+            margin-bottom: 24px; 
+        }
+        
+        .skill-card h3 { 
+            font-size: 20px; 
+            font-weight: 600;
+            margin-bottom: 12px; 
+        }
+        
+        .skill-card p { 
+            font-size: 15px; 
+            color: var(--text-muted); 
+            line-height: 1.5; 
+        }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(56, 189, 248, 0.1);
-            color: #64748b;
-            font-size: 14px;
+            padding: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 12px;
             margin-top: auto;
         }
 
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        /* --- ANIMATIONS & RESPONSIVENESS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 900px) {
-            nav { padding: 20px 30px; }
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero-text { padding-right: 0; margin-top: 50px; }
+        @media (max-width: 800px) {
+            .hero { flex-direction: column-reverse; text-align: center; gap: 40px; }
             .hero-text h1 { font-size: 42px; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-text p { font-size: 19px; }
+            .btn-group { justify-content: center; }
+            .profile-img-container { width: 260px; height: 260px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">ADHIKESH M.</a>
+        <a href="index.html" class="logo">Adhikesh M</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -233,15 +248,14 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-text">
-                <h1>Hi, I'm Adhikesh M</h1>
-                <p>Passionate developer and analytics enthusiast. I build modern, scalable web interfaces and turn raw data into actionable digital solutions.</p>
+                <h1>Securing the Digital Frontier.</h1>
+                <p>Cybersecurity professional specializing in reverse engineering, penetration testing, and network architecture. Identifying vulnerabilities before they can be exploited.</p>
                 <div class="btn-group">
-                    <a href="projects.html" class="btn btn-primary">Explore Projects</a>
-                    <a href="about.html" class="btn btn-secondary">About Me</a>
+                    <a href="projects.html" class="btn btn-primary">View Operations</a>
+                    <a href="about.html" class="btn btn-secondary">System Profile</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="visual-orb"></div>
                 <div class="profile-img-container">
                     <img src="https://github.com/mkadhikesh/mkadhikesh.github.io/blob/main/assets/WhatsApp%20Image%202026-09-06%20at%2012.04.37%20AM.jpeg?raw=true" alt="Adhikesh M Profile Picture">
                 </div>
@@ -252,24 +266,19 @@
         <h2 class="section-title">Core Expertise</h2>
         <div class="skills-container" id="skillsGrid">
             <div class="skill-card">
-                <div class="skill-icon">&#128187;</div>
-                <h3>Web Development</h3>
-                <p>Designing responsive, interactive, and high-performance websites using HTML, CSS, and JavaScript.</p>
+                <div class="skill-icon">⚙️</div>
+                <h3>Reverse Engineering</h3>
+                <p>Deconstructing software to understand its architecture, uncover undocumented features, and analyze malware behaviors.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">&#128202;</div>
-                <h3>Data Intelligence</h3>
-                <p>Analyzing datasets, building reports, and deriving insights through modern data analytics tools and practices.</p>
+                <div class="skill-icon">🛡️</div>
+                <h3>Penetration Testing</h3>
+                <p>Simulating real-world cyberattacks to identify and patch system vulnerabilities across web applications and infrastructure.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">&#9881;&#65039;</div>
-                <h3>Version Control & Hosting</h3>
-                <p>Managing code workflows via Git and deploying secure, custom-domain applications seamlessly on GitHub Pages.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">&#127760;</div>
-                <h3>UI/UX & Design</h3>
-                <p>Creating engaging, futuristic user experiences with glassmorphism and smooth animated UI layouts.</p>
+                <div class="skill-icon">🌐</div>
+                <h3>Network Security</h3>
+                <p>Architecting secure communication protocols, monitoring traffic anomalies, and fortifying enterprise network boundaries.</p>
             </div>
         </div>
     </main>
@@ -279,6 +288,7 @@
     </footer>
 
     <script>
+        // Subtle scroll animation for skill cards
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
